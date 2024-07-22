@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
+	rotatelogs "github.com/snowlyg/file-rotatelogs"
 )
 
 func ExampleForceNewFile() {

@@ -12,8 +12,8 @@ import (
 	"time"
 
 	"github.com/jonboulle/clockwork"
-	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"github.com/pkg/errors"
+	rotatelogs "github.com/snowlyg/file-rotatelogs"
 	"github.com/stretchr/testify/assert"
 )
 

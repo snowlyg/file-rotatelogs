@@ -1,11 +1,10 @@
-file-rotatelogs
-==================
+# file-rotatelogs
 
 Provide an `io.Writer` that periodically rotates log files from within the application. Port of [File::RotateLogs](https://metacpan.org/release/File-RotateLogs) from Perl to Go.
 
 [![Build Status](https://travis-ci.org/lestrrat-go/file-rotatelogs.png?branch=master)](https://travis-ci.org/lestrrat-go/file-rotatelogs)
 
-[![GoDoc](https://godoc.org/github.com/lestrrat-go/file-rotatelogs?status.svg)](https://godoc.org/github.com/lestrrat-go/file-rotatelogs)
+[![GoDoc](https://godoc.org/github.com/snowlyg/file-rotatelogs?status.svg)](https://godoc.org/github.com/snowlyg/file-rotatelogs)
 
 # WARNINGS
 
@@ -19,8 +18,8 @@ import (
   "log"
   "net/http"
 
-  apachelog "github.com/lestrrat-go/apache-logformat"
-  rotatelogs "github.com/lestrrat-go/file-rotatelogs"
+  apachelog "github.com/snowlyg/apache-logformat"
+  rotatelogs "github.com/snowlyg/file-rotatelogs"
 )
 
 func main() {
@@ -54,17 +53,17 @@ to setup logrotate!
 To install, simply issue a `go get`:
 
 ```
-go get github.com/lestrrat-go/file-rotatelogs
+go get github.com/snowlyg/file-rotatelogs
 ```
 
 It's normally expected that this library is used with some other
 logging service, such as the built-in `log` library, or loggers
-such as `github.com/lestrrat-go/apache-logformat`.
+such as `github.com/snowlyg/apache-logformat`.
 
 ```go
 import(
   "log"
-  "github.com/lestrrat-go/file-rotatelogs"
+  "github.com/snowlyg/file-rotatelogs"
 )
 
 func main() {
@@ -77,8 +76,7 @@ func main() {
 }
 ```
 
-OPTIONS
-====
+# OPTIONS
 
 ## Pattern (Required)
 
@@ -128,10 +126,10 @@ always check at the same location for log files even if the logs were rotated
 ```
 
 Links that share the same parent directory with the main log path will get a
-special treatment: namely, linked paths will be *RELATIVE* to the main log file.
+special treatment: namely, linked paths will be _RELATIVE_ to the main log file.
 
 | Main log file name  | Link name           | Linked path           |
-|---------------------|---------------------|-----------------------|
+| ------------------- | ------------------- | --------------------- |
 | /path/to/log.%Y%m%d | /path/to/log        | log.YYYYMMDD          |
 | /path/to/log.%Y%m%d | /path/to/nested/log | ../log.YYYYMMDD       |
 | /path/to/log.%Y%m%d | /foo/bar/baz/log    | /path/to/log.YYYYMMDD |
